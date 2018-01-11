@@ -29,7 +29,7 @@ func init() {
 	if DebugUtils.IsDebug() {
 		ConfigUtils.SetBaseDir(filepath.Join(DebugUtils.GetBaseDir(), "conf_test"))
 	} else {
-		ConfigUtils.SetBaseDir(filepath.Join(DebugUtils.GetBaseDir(), "cfg"))
+		ConfigUtils.SetBaseDir(filepath.Join(DebugUtils.GetBaseDir(), "conf"))
 	}
 
 }
