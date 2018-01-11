@@ -11,7 +11,7 @@ import (
 )
 
 import (
-	"github.com/plusplus1/utils4g/conf"
+	cfgLib "github.com/plusplus1/utils4g/cfg"
 )
 
 const (
@@ -88,7 +88,7 @@ func (c *dbConf) buildDataSourceString() string {
 func (mgr *dbConfManager) reloadConf(name string, cfg *dbConf) (*dbConf, error) {
 	name = formatName(name)
 	var filename string
-	var confUtil = conf.Util{}
+	var confUtil = cfgLib.Util{}
 
 	if cfg != nil {
 		filename = cfg.Filename
@@ -124,11 +124,11 @@ func (mgr *dbConfManager) getConf(name string, force bool) *dbConf {
 	}
 
 	if config, err = mgr.reloadConf(name, config); err != nil {
-		log.Printf("[ERROR] reload mysql conf %v error : %v", name, err)
+		log.Printf("[ERROR] reload mysql cfg %v error : %v", name, err)
 		return nil
 	}
 
-	log.Printf("[INFO] reload mysql conf %v success, %v", name, config.String())
+	log.Printf("[INFO] reload mysql cfg %v success, %v", name, config.String())
 	return config
 
 }

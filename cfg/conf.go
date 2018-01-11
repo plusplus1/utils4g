@@ -1,4 +1,4 @@
-package conf
+package cfg
 
 import "sync"
 
@@ -7,7 +7,7 @@ var (
 	once                    = sync.Once{}
 )
 
-// Util, conf util
+// Util, cfg util
 type Util struct{}
 
 // SetBaseDir, set base dir

@@ -9,7 +9,7 @@ import (
 	"time"
 )
 import (
-	"github.com/plusplus1/utils4g/conf"
+	cfgLib "github.com/plusplus1/utils4g/cfg"
 )
 
 const (
@@ -49,7 +49,7 @@ var (
 func (mgr *dbConfManager) reloadConf(name string, cfg *dbConf) (*dbConf, error) {
 	name = formatName(name)
 	var filename string
-	var confUtil = conf.Util{}
+	var confUtil = cfgLib.Util{}
 
 	if cfg != nil {
 		filename = cfg.Filename
@@ -100,11 +100,11 @@ func (mgr *dbConfManager) getConf(name string, force bool) *dbConf {
 	}
 
 	if config, err = mgr.reloadConf(name, config); err != nil {
-		log.Printf("[ERROR] reload mongodb conf %v error : %v", name, err)
+		log.Printf("[ERROR] reload mongodb cfg %v error : %v", name, err)
 		return nil
 	}
 
-	log.Printf("[INFO] reload mongo conf %v success, %v", name, config.String())
+	log.Printf("[INFO] reload mongo cfg %v success, %v", name, config.String())
 	return config
 
 }

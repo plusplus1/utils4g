@@ -33,7 +33,7 @@ func (mgr *sessionManager) getDatabase(name string) *mgo.Database {
 	for {
 		cfg := cfgManager.getConf(name, false)
 		if cfg == nil {
-			log.Printf("[ERROR] get mongodb conf fail, name=%v, error=no mongodb config", name)
+			log.Printf("[ERROR] get mongodb cfg fail, name=%v, error=no mongodb config", name)
 			break
 		}
 
