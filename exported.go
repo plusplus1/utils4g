@@ -6,6 +6,7 @@ import (
 
 import (
 	"github.com/plusplus1/utils4g/cfg"
+	"github.com/plusplus1/utils4g/datetime"
 	"github.com/plusplus1/utils4g/db"
 	"github.com/plusplus1/utils4g/debug"
 	"github.com/plusplus1/utils4g/str"
@@ -22,6 +23,8 @@ var (
 	StrUtils = str.Util{}
 
 	DB = db.Util
+
+	DateTimeUtils = datetime.Util
 )
 
 func init() {
