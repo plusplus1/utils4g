@@ -89,3 +89,15 @@ func (u *util) ParseLayout(layout, value string) (t time.Time, err error) {
 func (u *util) ParseLayoutLocation(layout, value string, location *time.Location) (t time.Time, err error) {
 	return time.ParseInLocation(layout, value, location)
 }
+
+func (u *util) FormatToDate(t time.Time) string {
+	return t.Format(u.layoutDate[0])
+}
+
+func (u *util) FormatToDateTime(t time.Time) string {
+	return t.Format(u.layoutDateTime[0])
+}
+
+func (u *util) FormatToLayout(t time.Time, layout string) string {
+	return t.Format(layout)
+}
