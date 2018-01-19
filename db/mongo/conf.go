@@ -18,8 +18,8 @@ const (
 	baseConfigMaxPoolLimit = 4096
 )
 
-// 定义db连接配置
-type dbConf struct {
+// DbConf, 定义db连接配置
+type DbConf struct {
 	Name       string `json:"name"`
 	DbName     string `json:"db"`
 	Filename   string `json:"filename"`
@@ -32,10 +32,10 @@ type dbConf struct {
 // 定义db配置管理器
 type dbConfManager struct {
 	LastUpdateTime int64
-	configs        map[string]*dbConf
+	configs        map[string]*DbConf
 }
 
-func (c *dbConf) String() string {
+func (c *DbConf) String() string {
 	var bytes []byte
 	bytes, _ = json.Marshal(c)
 	return string(bytes)
@@ -43,10 +43,10 @@ func (c *dbConf) String() string {
 
 var (
 	// 初始化内部mongodb配置管理池
-	cfgManager = &dbConfManager{configs: make(map[string]*dbConf)}
+	cfgManager = &dbConfManager{configs: make(map[string]*DbConf)}
 )
 
-func (mgr *dbConfManager) reloadConf(name string, cfg *dbConf) (*dbConf, error) {
+func (mgr *dbConfManager) reloadConf(name string, cfg *DbConf) (*DbConf, error) {
 	name = formatName(name)
 	var filename string
 	var confUtil = cfgLib.Util{}
@@ -55,7 +55,7 @@ func (mgr *dbConfManager) reloadConf(name string, cfg *dbConf) (*dbConf, error) 
 		filename = cfg.Filename
 	} else {
 		filename = filepath.Join(confUtil.GetBaseDir(), baseConfigPath, name+".yaml")
-		cfg = &dbConf{Filename: filename, Name: name}
+		cfg = &DbConf{Filename: filename, Name: name}
 	}
 
 	if err := confUtil.ReadYaml(filename, cfg); err != nil {
@@ -86,8 +86,8 @@ func (mgr *dbConfManager) reloadConf(name string, cfg *dbConf) (*dbConf, error) 
 	return cfg, nil
 }
 
-func (mgr *dbConfManager) getConf(name string, force bool) *dbConf {
-	var config *dbConf = nil
+func (mgr *dbConfManager) getConf(name string, force bool) *DbConf {
+	var config *DbConf = nil
 	var err error
 
 	if !force {
