@@ -1,0 +1,50 @@
+{
+	"comment": "",
+	"ignore": "test",
+	"package": [
+		{
+			"checksumSHA1": "Z6rD6bmF8InGLXM7EHr8TMxMXNY=",
+			"path": "github.com/go-sql-driver/mysql",
+			"revision": "9181e3a86a19bacd63e68d43ae8b7b36320d8092",
+			"revisionTime": "2017-12-04T00:43:26Z"
+		},
+		{
+			"checksumSHA1": "TvH4fpTw/CQK64NLGNrZZkCy/q8=",
+			"path": "github.com/go-yaml/yaml",
+			"revision": "c95af922eae69f190717a0b7148960af8c55a072",
+			"revisionTime": "2018-01-02T12:38:42Z"
+		},
+		{
+			"checksumSHA1": "zmC8/3V4ls53DJlNTKDZwPSC/dA=",
+			"path": "github.com/satori/go.uuid",
+			"revision": "5bf94b69c6b68ee1b541973bb8e1144db23a194b",
+			"revisionTime": "2017-03-21T23:07:31Z"
+		},
+		{
+			"checksumSHA1": "WnWZliAFCrK8U2GTdT7fAA1c4gM=",
+			"path": "gopkg.in/mgo.v2-unstable",
+			"revision": ""
+		},
+		{
+			"checksumSHA1": "277bXozBojNqxn53BQWuccV48GU=",
+			"path": "gopkg.in/mgo.v2-unstable/bson",
+			"revision": ""
+		},
+		{
+			"checksumSHA1": "LRrDb5QiVI8BBHLipwclwkFFAJk=",
+			"path": "gopkg.in/mgo.v2-unstable/internal/json",
+			"revision": ""
+		},
+		{
+			"checksumSHA1": "A6kKIc9iWy3lyZGbb62EJYnA8YU=",
+			"path": "gopkg.in/mgo.v2-unstable/internal/sasl",
+			"revision": ""
+		},
+		{
+			"checksumSHA1": "p682APODuwoRwS9nj+NVu7wRxjo=",
+			"path": "gopkg.in/mgo.v2-unstable/internal/scram",
+			"revision": ""
+		}
+	],
+	"rootPath": "github.com/plusplus1/utils4g"
+}
