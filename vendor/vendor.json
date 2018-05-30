@@ -3,22 +3,32 @@
 	"ignore": "test",
 	"package": [
 		{
-			"checksumSHA1": "Z6rD6bmF8InGLXM7EHr8TMxMXNY=",
+			"path": "appengine/cloudsql",
+			"revision": ""
+		},
+		{
+			"checksumSHA1": "xmTgJXWHguGKHPuZE50FIbs88L0=",
 			"path": "github.com/go-sql-driver/mysql",
-			"revision": "9181e3a86a19bacd63e68d43ae8b7b36320d8092",
-			"revisionTime": "2017-12-04T00:43:26Z"
+			"revision": "a0583e0143b1624142adab07e0e97fe106d99561",
+			"revisionTime": "2016-12-01T11:50:36Z",
+			"version": "v1.3.0",
+			"versionExact": "v1.3.0"
 		},
 		{
-			"checksumSHA1": "TvH4fpTw/CQK64NLGNrZZkCy/q8=",
+			"checksumSHA1": "EK2VP/7bE/h7Lnutma8UHWkOJsQ=",
 			"path": "github.com/go-yaml/yaml",
-			"revision": "c95af922eae69f190717a0b7148960af8c55a072",
-			"revisionTime": "2018-01-02T12:38:42Z"
+			"revision": "5420a8b6744d3b0345ab293f6fcba19c978f1183",
+			"revisionTime": "2018-03-28T19:50:20Z",
+			"version": "v2.2.1",
+			"versionExact": "v2.2.1"
 		},
 		{
-			"checksumSHA1": "zmC8/3V4ls53DJlNTKDZwPSC/dA=",
+			"checksumSHA1": "+nVM+CEZGAopOrYlLifgWP+X01E=",
 			"path": "github.com/satori/go.uuid",
-			"revision": "5bf94b69c6b68ee1b541973bb8e1144db23a194b",
-			"revisionTime": "2017-03-21T23:07:31Z"
+			"revision": "f58768cc1a7a7e77a3bd49e98cdd21419399b6a3",
+			"revisionTime": "2018-01-03T03:42:45Z",
+			"version": "v1.2.0",
+			"versionExact": "v1.2.0"
 		},
 		{
 			"checksumSHA1": "WnWZliAFCrK8U2GTdT7fAA1c4gM=",
