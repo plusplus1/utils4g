@@ -30,5 +30,7 @@ func (u Util) Connect(name string) *sql.DB {
 }
 
 func (u Util) Close(db *sql.DB) {
-	db.Close()
+	if nil != db {
+		db.Close()
+	}
 }
