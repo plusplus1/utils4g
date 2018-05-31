@@ -4,7 +4,8 @@
 *.so
 *.dylib
 
-vendor/github.com/
+vendor
+
 # Test binary, build with `go test -c`
 *.test
 

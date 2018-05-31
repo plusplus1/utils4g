@@ -5,9 +5,7 @@ import (
 	"fmt"
 	"net/url"
 	"strings"
-)
 
-import (
 	"github.com/satori/go.uuid"
 )
 
@@ -78,5 +76,13 @@ func (u *strUtil) Md5String(data string) string {
 }
 
 func (u *strUtil) NewStrUUID() string {
-	return strings.Replace(uuid.NewV1().String(), "-", "", -1)
+	var strU uuid.UUID
+	var err error
+
+	strU, err = uuid.NewV1()
+	if err != nil {
+		strU, err = uuid.NewV4()
+	}
+
+	return strings.Replace(strU.String(), "-", "", -1)
 }
