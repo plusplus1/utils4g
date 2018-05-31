@@ -10,7 +10,7 @@ import (
 )
 
 import (
-	"gopkg.in/mgo.v2-unstable"
+	"gopkg.in/mgo.v2"
 )
 
 var (
