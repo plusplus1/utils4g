@@ -141,6 +141,8 @@ func (mgoUtil *dbMgoUtil) getDatabase(name string) *mgo.Database {
 				log.Printf("[WARN] ping mongodb and then retry, name=%v, error=%v", name, connectError)
 				sCopy.Close()
 				s.Close()
+
+				delete(mgoUtil.sessions, name)
 			} else {
 				targetDb = sCopy.DB(cfg.DbName)
 				break
@@ -149,7 +151,7 @@ func (mgoUtil *dbMgoUtil) getDatabase(name string) *mgo.Database {
 
 		// 尝试建立新的连接
 		var s *mgo.Session
-		if s, connectError = mgo.Dial(cfg.ConnStr); connectError != nil {
+		if s, connectError = mgo.DialWithTimeout(cfg.ConnStr, 2*time.Second); connectError != nil {
 			log.Printf("[ERROR] connect mongodb fail, name=%v, error=%v", name, connectError)
 			break
 		}
