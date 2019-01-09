@@ -115,7 +115,7 @@ func (mysqlUtil *dbMysqlUtil) getConf(name string, force bool) *dbMysqlConf {
 		return nil
 	}
 
-	log.Printf("[INFO] reload mysql cfg %v success, %v", name, config.String())
+	log.Printf("[INFO] reload mysql cfg %v success", name)
 	return config
 }
 

@@ -105,7 +105,7 @@ func (mgoUtil *dbMgoUtil) getConf(name string, force bool) *dbMgoConf {
 		return nil
 	}
 
-	log.Printf("[INFO] reload mongo cfg %v success, %v", name, config.String())
+	log.Printf("[INFO] reload mongo cfg %v success", name)
 	return config
 
 }
