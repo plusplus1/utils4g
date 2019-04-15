@@ -77,12 +77,6 @@ func (u *strUtil) Md5String(data string) string {
 
 func (u *strUtil) NewStrUUID() string {
 	var strU uuid.UUID
-	var err error
-
-	strU, err = uuid.NewV1()
-	if err != nil {
-		strU, err = uuid.NewV4()
-	}
-
+	strU = uuid.NewV1()
 	return strings.Replace(strU.String(), "-", "", -1)
 }
