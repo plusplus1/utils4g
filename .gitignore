@@ -4,7 +4,11 @@
 *.so
 *.dylib
 
-vendor/github.com/
+vendor
+.idea
+go.sum
+baks
+
 # Test binary, build with `go test -c`
 *.test
 

@@ -1,11 +1,19 @@
 package utils4g
 
-import "testing"
+import (
+	"os"
+	"testing"
+)
 
 func TestStrUtil_NewStrUUID(t *testing.T) {
 
 	s := newStrUtil()
-	t.Log(s.NewStrUUID())
+
+	_ = os.Setenv("UUID_Version", "")
+
+	for i := 0; i < 100; i++ {
+		t.Log(s.NewStrUUID())
+	}
 
 }
 

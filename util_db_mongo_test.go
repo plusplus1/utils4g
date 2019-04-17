@@ -1,17 +1,12 @@
 package utils4g
 
-import (
-	"fmt"
-	"testing"
-)
+import "testing"
 
 func TestDbMgoUtil_Connect(t *testing.T) {
-	m := newDbMgoUtil()
-	c := m.GetConf("demo")
-	fmt.Println(c.String())
-	db := m.Connect("demo")
-	defer m.Close(db)
+	util := newDbMgoUtil()
+	db := util.Connect("demo")
+	defer util.Close(db)
 
-	fmt.Println(db.CollectionNames())
+	t.Log(db.CollectionNames())
 
 }

@@ -1,0 +1,12 @@
+# The seed servers must be provided in the following format:
+#
+#     [mongodb://][user:pass@]host1[:port1][,host2[:port2],...][/database][?options]
+#
+# Relevant documentation:
+#
+#     http://docs.mongodb.org/manual/reference/connection-string/
+#
+connect_string: "mongodb://abc:sidjg@127.00.1,localhost/result?xxx=xxx"
+
+# 连接池大小，控制最大并发，最大4096
+pool_limit: 1000

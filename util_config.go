@@ -1,21 +1,13 @@
 package utils4g
 
 import (
-	"io/ioutil"
-	"path/filepath"
-	"sync"
+	"github.com/plusplus1/utils4g/configuration"
+	"github.com/plusplus1/utils4g/env"
 )
 
-import (
-	"github.com/go-yaml/yaml"
-)
+type configUtil struct{}
 
-var (
-	flagCfgBaseDir *string = nil
-	cfgSetOnce             = sync.Once{}
-
-	configInstance = &configUtil{}
-)
+var configInstance = &configUtil{}
 
 func newConfigUtil() *configUtil {
 	return configInstance
@@ -23,37 +15,20 @@ func newConfigUtil() *configUtil {
 
 // SetBaseDir, set base dir
 func (u *configUtil) SetBaseDir(baseDir string) {
-	if baseDir != "" {
-		cfgSetOnce.Do(func() {
-			var dir = baseDir
-			flagCfgBaseDir = &dir
-		})
-	}
+
 }
 
 // GetBaseDir, get base dir
 func (u *configUtil) GetBaseDir() string {
-	if flagCfgBaseDir == nil {
-		panic("You must set base directory first")
-	}
-	return *flagCfgBaseDir
+	return env.ConfDir()
 }
 
 // ReadYaml , read yaml file
 func (u *configUtil) ReadYaml(confYaml string, out interface{}) error {
-
-	if bytes, eRead := ioutil.ReadFile(confYaml); eRead != nil {
-		return eRead
-	} else {
-		if eDecode := yaml.Unmarshal(bytes, out); eDecode != nil {
-			return eDecode
-		}
-	}
-	return nil
+	return configuration.LoadYaml(confYaml, out)
 }
 
 // ReadPath , read via config path
 func (u *configUtil) ReadPath(path string, out interface{}) error {
-	var confYaml = filepath.Join(u.GetBaseDir(), path+".yaml")
-	return u.ReadYaml(confYaml, out)
+	return configuration.LoadRelativePath(path, out)
 }

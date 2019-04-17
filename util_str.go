@@ -1,82 +1,29 @@
 package utils4g
 
 import (
-	"crypto/md5"
-	"fmt"
-	"net/url"
-	"strings"
+	"github.com/plusplus1/utils4g/texts"
 )
 
-import (
-	"github.com/satori/go.uuid"
-)
+type strUtil struct{}
 
-var (
-	strInstance = &strUtil{}
-)
+var strInstance = &strUtil{}
 
 func newStrUtil() *strUtil {
 	return strInstance
 }
 
 func (u *strUtil) UrlEncode(data interface{}) (result string, err error) {
-	if strData, ok := data.(string); ok {
-		result = url.QueryEscape(strData)
-		return
-	}
-
-	if m, ok := data.(map[string]string); ok {
-		result = u.mssUrlEncode(m)
-		return
-	}
-
-	if m, ok := data.(map[string]interface{}); ok {
-		result = u.msiUrlEncode(m)
-		return
-	}
-
-	if m, ok := data.(map[interface{}]interface{}); ok {
-		result = u.miiUrlEncode(m)
-		return
-	}
-
-	err = fmt.Errorf("UrlEncode fail, data type not supported")
-	return
-
-}
-
-func (u *strUtil) mssUrlEncode(data map[string]string) string {
-	values := url.Values{}
-	for k, v := range data {
-		values.Set(k, v)
-	}
-	return values.Encode()
-}
-
-func (u *strUtil) msiUrlEncode(data map[string]interface{}) string {
-	values := url.Values{}
-	for k, v := range data {
-		values.Set(k, fmt.Sprintf("%v", v))
-	}
-	return values.Encode()
-}
-
-func (u *strUtil) miiUrlEncode(data map[interface{}]interface{}) string {
-	values := url.Values{}
-	for k, v := range data {
-		values.Set(fmt.Sprintf("%v", k), fmt.Sprintf("%v", v))
-	}
-	return values.Encode()
+	return texts.UrlEncode(data)
 }
 
 func (u *strUtil) Md5Bytes(data []byte) string {
-	return fmt.Sprintf("%x", md5.Sum(data))
+	return texts.Md5(data)
 }
 
 func (u *strUtil) Md5String(data string) string {
-	return u.Md5Bytes([]byte(data))
+	return texts.Md5(data)
 }
 
 func (u *strUtil) NewStrUUID() string {
-	return strings.Replace(uuid.NewV1().String(), "-", "", -1)
+	return texts.UUIDString()
 }

@@ -1,0 +1,13 @@
+# prefix, all keys with "prefix:"
+prefix: thoth
+# 连接机器
+host: 127.0.0.1
+# 连接端口
+port: 6379
+# 认证信息
+password: ""
+# 默认连接的db
+db: 1
+# 最大连接数
+max_connections: 1000
+

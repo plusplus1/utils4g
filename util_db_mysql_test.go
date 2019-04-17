@@ -3,18 +3,29 @@ package utils4g
 import (
 	"fmt"
 	"testing"
+
+	mysqlImpl "github.com/go-sql-driver/mysql"
 )
 
 func TestDbMysqlUtil_Connect(t *testing.T) {
 
 	m := newDbMysqlUtil()
-	c := m.GetConf("demo")
-	fmt.Println(c.String())
 
 	db := m.Connect("demo")
 	defer m.Close(db)
 
-	rs, _ := db.Query("show tables;")
+	rs, err := db.Query("show tables;")
+	if err != nil {
+		var i interface{} = err
+		if e, ok := i.(*mysqlImpl.MySQLError); ok {
+			t.Log(e.Number)
+			t.Log(e.Message)
+		} else {
+			fmt.Println()
+		}
+		return
+	}
+
 	defer rs.Close()
 
 	fmt.Println(rs.Columns())
