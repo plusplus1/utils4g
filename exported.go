@@ -6,6 +6,14 @@ import (
 	"github.com/plusplus1/utils4g/stdlog"
 )
 
+import (
+	_ "github.com/plusplus1/utils4g/database/mongo"
+	_ "github.com/plusplus1/utils4g/database/mysql"
+	_ "github.com/plusplus1/utils4g/database/redis"
+	_ "github.com/plusplus1/utils4g/datetime"
+	_ "github.com/plusplus1/utils4g/texts"
+)
+
 var StdLog = stdlog.Std
 
 func ISDebug() bool {
