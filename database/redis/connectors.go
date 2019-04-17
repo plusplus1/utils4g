@@ -34,7 +34,7 @@ func (r *configRegistry) GetConf(path string) *ConnectionParameter {
 
 	var c = r.registry[path]
 	if c == nil {
-		if cp, err := NewRedisConfig(path); err != nil {
+		if cp, err := NewConnectionParameter(path); err != nil {
 			log.Errorf("Load config fail, path=%v, err=%v", path, err)
 			return nil
 		} else {

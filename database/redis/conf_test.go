@@ -4,7 +4,7 @@ import "testing"
 
 func TestNewRedisConfig(t *testing.T) {
 
-	var c = NewClient("demo")
+	var c = Connect("demo")
 
 	var key, val = "aaaa", "xxxxxx"
 

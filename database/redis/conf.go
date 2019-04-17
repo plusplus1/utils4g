@@ -40,7 +40,7 @@ func fulfillPath(path string) string {
 	return pathPrefix + "/" + path
 }
 
-func NewRedisConfig(path string) (cfg ConnectionParameter, err error) {
+func NewConnectionParameter(path string) (cfg ConnectionParameter, err error) {
 	path = fulfillPath(path)
 	var file = filepath.Join(env.ConfDir(), path+".yaml")
 	if err = configuration.LoadYaml(file, &cfg); err != nil {
