@@ -1,17 +1,17 @@
 package utils4g
 
 import (
-	"github.com/plusplus1/utils4g/configuration"
-	"github.com/plusplus1/utils4g/env"
-	"github.com/plusplus1/utils4g/stdlog"
+	"database/sql"
 )
 
 import (
-	_ "github.com/plusplus1/utils4g/database/mongo"
-	_ "github.com/plusplus1/utils4g/database/mysql"
-	_ "github.com/plusplus1/utils4g/database/redis"
-	_ "github.com/plusplus1/utils4g/datetime"
-	_ "github.com/plusplus1/utils4g/texts"
+	"github.com/xgo11/configuration"
+	"github.com/xgo11/env"
+	"github.com/xgo11/mongo4g"
+	"github.com/xgo11/mysql4g"
+	"github.com/xgo11/redis4g"
+	"github.com/xgo11/stdlog"
+	"gopkg.in/mgo.v2"
 )
 
 var StdLog = stdlog.Std
@@ -35,4 +35,23 @@ func LoadAbsYamlConf(yaml string, out interface{}) error {
 
 func LoadRelativePathConf(path string, out interface{}) error {
 	return configuration.LoadRelativePath(path, out)
+}
+
+func ConnectMongo(path string) *mgo.Database {
+	return mongo4g.Connect(path)
+}
+
+func CloseMongo(database *mgo.Database) {
+	mongo4g.Close(database)
+}
+
+func ConnectMySQL(path string) *sql.DB {
+	return mysql4g.Connect(path)
+}
+func CloseMySQL(db *sql.DB) {
+	mysql4g.Close(db)
+}
+
+func ConnectRedis(path string) *redis4g.WrapClient {
+	return redis4g.Connect(path)
 }
